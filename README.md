@@ -9,8 +9,13 @@ Un programa que crea ordenes hechas por clientes, donde se agregan productos de 
 
 # Correciones:
 Se agrego el header de Ordenes.h (incluye clase orden)
+
 Se implemento una clase de orden
+
 Se agregaron nuevas variables para las clases previas (Pastel, Pan, Galleta)
+
 Se implemento el menu y el ciclo para correr el main
+
 Se implemento un prototipo de clase PastelBoda, clase hija de clase Pastel (todavia no funciona)
+
 Se agregaron pruebas en el main para comprbar el funcionamiento de las clases y las funciones
