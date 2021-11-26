@@ -15,7 +15,7 @@ Descripcion:Documento que contiene las clases de los platillos de las cocicnas, 
 using namespace std;
 
 class Pastel{
-private:
+protected:
   int huevos;
   float harina;
   string sabor;
@@ -25,8 +25,11 @@ private:
   float molde;
 
 public:
-  Pastel():huevos(0),harina(0.0),sabor(""),azucar(0.0),levadura(0.0),mantequilla(0.0),molde(0.0){};
-  Pastel(int hue,float har,string sab,float az,float lev,float man,float mold):huevos(hue),harina(har),sabor(sab),azucar(az),levadura(lev),mantequilla(man),molde(mold){};
+  Pastel():huevos(0),harina(0.0),sabor(""),azucar(0.0),levadura(0.0),
+  mantequilla(0.0),molde(0.0){};
+  Pastel(int hue,float har,string sab,float az,float lev,float man,float mold):
+  huevos(hue),harina(har),sabor(sab),azucar(az),levadura(lev),mantequilla(man),
+  molde(mold){};
 
   int get_huevos();
   float get_harina();
@@ -35,7 +38,6 @@ public:
   float get_levadura();
   float get_mantequilla();
   float get_molde();
-  bool get_listo();
 
   void set_huevos(int );
   void set_harina(float );
@@ -44,7 +46,7 @@ public:
   void set_levadura(float );
   void set_mantequilla(float );
   void set_molde(float );
-  void set_listo(bool );
+
 
 };
 
@@ -56,9 +58,12 @@ private:
   string figura;
   float azucar;
   float mantequilla;
+
 public:
-  Galleta():huevos(0),harina(0.0),sabor(""),figura(""),azucar(0.0),mantequilla(0.0){};
-  Galleta(int hue,float har,string sab,string fig,float az,float man):huevos(hue),harina(har),sabor(sab),figura(fig),azucar(az),mantequilla(man){};
+  Galleta():huevos(0),harina(0.0),sabor(""),figura(""),azucar(0.0),
+  mantequilla(0.0){};
+  Galleta(int hue,float har,string sab,string fig,float az,float man):
+  huevos(hue),harina(har),sabor(sab),figura(fig),azucar(az),mantequilla(man){};
 
   int get_huevos();
   float get_harina();
@@ -66,7 +71,6 @@ public:
   string get_figura();
   float get_azucar();
   float get_mantequilla();
-  bool get_listo();
 
   void set_huevos(int );
   void set_harina(float );
@@ -74,10 +78,10 @@ public:
   void set_figura(string );
   void set_azucar(float );
   void set_mantequilla(float );
-  void set_listo(bool );
 };
 
 class Pan{
+private:
   string tipo;
   int huevos;
   float harina;
@@ -86,8 +90,11 @@ class Pan{
   float azucar;
   float mantequilla;
 public:
-  Pan():tipo(""),huevos(0),harina(0.0),levadura(0.0),leche(0.0),azucar(0.0),mantequilla(0.0){};
-  Pan(string tip,int hue,float har,float lev,float lech,float az,float man):tipo(tip),huevos(hue),harina(har),levadura(lev),leche(lech),azucar(az),mantequilla(man){};
+  Pan():tipo(""),huevos(0),harina(0.0),levadura(0.0),leche(0.0),azucar(0.0),
+  mantequilla(0.0){};
+  Pan(string tip,int hue,float har,float lev,float lech,float az,float man):
+  tipo(tip),huevos(hue),harina(har),levadura(lev),leche(lech),azucar(az),
+  mantequilla(man){};
 
   string get_tipo();
   int get_huevos();
@@ -96,7 +103,6 @@ public:
   float get_leche();
   float get_azucar();
   float get_mantequilla();
-  bool get_listo();
 
   void set_tipo(string );
   void set_huevos(int );
@@ -105,36 +111,31 @@ public:
   void set_leche(float );
   void set_azucar(float );
   void set_mantequilla(float );
-  void set_listo(bool );
+
 };
 
-//Primer intento de creacion de herencia de la clase PastelBoda, todavia no esta terminada
 class PastelBoda: public Pastel{
 private:
   int pisos;
 public:
-  PastelBoda():pisos(0){};
-  PastelBoda(int pis):pisos(pis){};
-
-  int get_huevos();
-  float get_harina();
-  string get_sabor();
-  float get_azucar();
-  float get_levadura();
-  float get_mantequilla();
-  float get_molde();
-  bool get_listo();
+  PastelBoda():pisos(0),Pastel(){};
+  PastelBoda(int hue,float har,string sab,float az,float lev,float man,float mold,int pis)
+  :pisos(pis),Pastel(hue, har, sab, az,lev,man,mold){};
   int get_pisos();
 
-  void set_huevos(int );
-  void set_harina(float );
-  void set_sabor(string );
-  void set_azucar(float );
-  void set_levadura(float );
-  void set_mantequilla(float );
-  void set_molde(float );
-  void set_listo(bool );
   void set_pisos(int );
+};
+
+class Cupcake: public Pastel{
+private:
+  string betun;
+public:
+  Cupcake():betun(""),Pastel(){};
+  Cupcake(int hue,float har,string sab,float az,float lev,float man,float mold,string bet)
+  :betun(bet),Pastel(hue, har, sab, az,lev,man,mold){};
+  string get_betun();
+
+  void set_betun(string );
 };
 
 //Funciones para pasteles
@@ -160,9 +161,7 @@ float Pastel::get_mantequilla(){
 float Pastel::get_molde(){
   return molde;
 }
-bool Pastel::get_listo(){
-  return listo;
-}
+
 //Funciones set o setters
 void Pastel::set_huevos(int hue){
   huevos=hue;
@@ -185,9 +184,6 @@ void Pastel::set_mantequilla(float man){
 void Pastel::set_molde(float mold){
   molde=mold;
 }
-void Pastel::set_listo(bool lis){
-  listo=lis;
-}
 
 //Funciones para galletas
 //Funciones Get o getters
@@ -209,9 +205,7 @@ float Galleta::get_azucar(){
 float Galleta::get_mantequilla(){
   return mantequilla;
 }
-bool Galleta::get_listo(){
-  return listo;
-}
+
 //Funciones Set o setters
 void Galleta::set_huevos(int hue){
   huevos=hue;
@@ -230,9 +224,6 @@ void Galleta::set_azucar(float az){
 }
 void Galleta::set_mantequilla(float man){
   mantequilla=man;
-}
-void Galleta::set_listo(bool lis){
-  listo=lis;
 }
 
 //Funciones para Pan
@@ -258,9 +249,7 @@ float Pan::get_azucar(){
 float Pan::get_mantequilla(){
   return mantequilla;
 }
-bool Pan::get_listo(){
-  return listo;
-}
+
 //Funciones Set o setters
 void Pan::set_tipo(string tip){
   tipo=tip;
@@ -283,66 +272,24 @@ void Pan::set_azucar(float az){
 void Pan::set_mantequilla(float man){
   mantequilla=man;
 }
-void Pan::set_listo(bool lis){
-  listo=lis;
-}
 
 //Funciones para pasteles de boda
 //Funciones Get o getters
-int PastelBoda::get_huevos(){
-  return huevos;
-}
-float PastelBoda::get_harina(){
-  return harina;
-}
-string PastelBoda::get_sabor(){
-  return sabor;
-}
-float PastelBoda::get_azucar(){
-  return azucar;
-}
-float PastelBoda::get_levadura(){
-  return levadura;
-}
-float PastelBoda::get_mantequilla(){
-  return mantequilla;
-}
-float PastelBoda::get_molde(){
-  return molde;
-}
-bool PastelBoda::get_listo(){
-  return listo;
-}
 int PastelBoda::get_pisos(){
   return pisos;
 }
 //Funciones set o setters
-void PastelBoda::set_huevos(int hue){
-  huevos=hue;
-}
-void PastelBoda::set_harina(float har){
-  harina=har;
-}
-void PastelBoda::set_sabor(string sab){
-  sabor=sab;
-}
-void PastelBoda::set_azucar(float az){
-  azucar=az;
-}
-void PastelBoda::set_levadura(float lev){
-  levadura=lev;
-}
-void PastelBoda::set_mantequilla(float man){
-  mantequilla=man;
-}
-void PastelBoda::set_molde(float mold){
-  molde=mold;
-}
-void PastelBoda::set_listo(bool lis){
-  listo=lis;
-}
 void PastelBoda::set_pisos(int pis){
   pisos=pis;
+}
+//Funciones para cupcakes
+//Funciones Get o getters
+string Cupcake::get_betun(){
+  return betun;
+}
+//Funciones set o setters
+void Cupcake::set_betun(string bet){
+  betun=bet;
 }
 
 #endif
