@@ -19,3 +19,18 @@ Se implemento el menu y el ciclo para correr el main
 Se implemento un prototipo de clase PastelBoda, clase hija de clase Pastel (todavia no funciona)
 
 Se agregaron pruebas en el main para comprbar el funcionamiento de las clases y las funciones
+
+PARTE 2
+
+Se termino de implementar herencia
+
+Se agrego la clase cupcake, clase hija de pastel
+
+Se mejoro el Menu
+
+Se cambio el diagrama UML
+
+Se cambio y modifico el header de Ordenes, con nuevos metodos y atributos
+
+Se agrego composicion a los objetos
+
