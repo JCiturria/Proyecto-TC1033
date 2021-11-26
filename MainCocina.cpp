@@ -115,7 +115,7 @@ int main(){
         temp_azucar,temp_mantequilla);
       break;}
       case 6:{
-        cout<<"falta implementar";
+        cout<<"falta implementar"<<endl;
       break;}
         }
       }
