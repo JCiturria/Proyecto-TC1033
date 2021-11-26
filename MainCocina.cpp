@@ -4,8 +4,8 @@ TC1033, Programación Orientada a Objetos*/
 
 #include <iostream>
 #include <string>
-#include "Ordenes2.h"
-#include "MenuProyecto2.h"
+#include "Ordenes.h"
+#include "MenuProyecto.h"
 using namespace std;
 
 void menu(){
