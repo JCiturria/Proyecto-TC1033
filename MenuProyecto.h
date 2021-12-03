@@ -23,13 +23,15 @@ protected:
   float levadura;
   float mantequilla;
   float molde;
+  float precio;
 
 public:
   Pastel():huevos(0),harina(0.0),sabor(""),azucar(0.0),levadura(0.0),
-  mantequilla(0.0),molde(0.0){};
-  Pastel(int hue,float har,string sab,float az,float lev,float man,float mold):
+  mantequilla(0.0),molde(0.0),precio(0.0){};
+  Pastel(int hue,float har,string sab,float az,float lev,float man,float mold,
+    float pre):
   huevos(hue),harina(har),sabor(sab),azucar(az),levadura(lev),mantequilla(man),
-  molde(mold){};
+  molde(mold),precio(pre){};
 
   int get_huevos();
   float get_harina();
@@ -38,6 +40,7 @@ public:
   float get_levadura();
   float get_mantequilla();
   float get_molde();
+  float get_precio();
 
   void set_huevos(int );
   void set_harina(float );
@@ -46,8 +49,7 @@ public:
   void set_levadura(float );
   void set_mantequilla(float );
   void set_molde(float );
-
-
+  void set_precio(float );
 };
 
 class Galleta{
@@ -58,12 +60,13 @@ private:
   string figura;
   float azucar;
   float mantequilla;
+  float precio;
 
 public:
   Galleta():huevos(0),harina(0.0),sabor(""),figura(""),azucar(0.0),
-  mantequilla(0.0){};
-  Galleta(int hue,float har,string sab,string fig,float az,float man):
-  huevos(hue),harina(har),sabor(sab),figura(fig),azucar(az),mantequilla(man){};
+  mantequilla(0.0),precio(0.0){};
+  Galleta(int hue,float har,string sab,string fig,float az,float man,float pre):
+  huevos(hue),harina(har),sabor(sab),figura(fig),azucar(az),mantequilla(man),precio(pre){};
 
   int get_huevos();
   float get_harina();
@@ -71,6 +74,7 @@ public:
   string get_figura();
   float get_azucar();
   float get_mantequilla();
+  float get_precio();
 
   void set_huevos(int );
   void set_harina(float );
@@ -78,6 +82,9 @@ public:
   void set_figura(string );
   void set_azucar(float );
   void set_mantequilla(float );
+  void set_precio(float );
+
+  string Cadena();
 };
 
 class Pan{
@@ -89,12 +96,13 @@ private:
   float leche;
   float azucar;
   float mantequilla;
+  float precio;
 public:
   Pan():tipo(""),huevos(0),harina(0.0),levadura(0.0),leche(0.0),azucar(0.0),
-  mantequilla(0.0){};
-  Pan(string tip,int hue,float har,float lev,float lech,float az,float man):
+  mantequilla(0.0),precio(0.0){};
+  Pan(string tip,int hue,float har,float lev,float lech,float az,float man,float pre):
   tipo(tip),huevos(hue),harina(har),levadura(lev),leche(lech),azucar(az),
-  mantequilla(man){};
+  mantequilla(man),precio(pre){};
 
   string get_tipo();
   int get_huevos();
@@ -103,6 +111,7 @@ public:
   float get_leche();
   float get_azucar();
   float get_mantequilla();
+  float get_precio();
 
   void set_tipo(string );
   void set_huevos(int );
@@ -111,7 +120,9 @@ public:
   void set_leche(float );
   void set_azucar(float );
   void set_mantequilla(float );
+  void set_precio(float );
 
+  string Cadena();
 };
 
 class PastelBoda: public Pastel{
@@ -119,11 +130,12 @@ private:
   int pisos;
 public:
   PastelBoda():pisos(0),Pastel(){};
-  PastelBoda(int hue,float har,string sab,float az,float lev,float man,float mold,int pis)
-  :pisos(pis),Pastel(hue, har, sab, az,lev,man,mold){};
+  PastelBoda(int hue,float har,string sab,float az,float lev,float man,float mold,float pre,int pis)
+  :pisos(pis),Pastel(hue, har, sab, az,lev,man,mold,pre){};
   int get_pisos();
 
   void set_pisos(int );
+  string Cadena();
 };
 
 class Cupcake: public Pastel{
@@ -131,12 +143,35 @@ private:
   string betun;
 public:
   Cupcake():betun(""),Pastel(){};
-  Cupcake(int hue,float har,string sab,float az,float lev,float man,float mold,string bet)
-  :betun(bet),Pastel(hue, har, sab, az,lev,man,mold){};
+  Cupcake(int hue,float har,string sab,float az,float lev,float man,float mold,float pre,string bet)
+  :betun(bet),Pastel(hue, har, sab, az,lev,man,mold,pre){};
   string get_betun();
 
   void set_betun(string );
+  string Cadena();
 };
+
+string PastelBoda::Cadena(){
+  stringstream pruebap;
+  pruebap << "Pastel sabor: " << sabor << " con numero de pisos: "<< pisos << "\n";
+  return pruebap.str();
+}
+string Cupcake::Cadena(){
+  stringstream pruebac;
+  pruebac << "Cupcake sabor: " << sabor << " con betun de: "<< betun << "\n";
+  return pruebac.str();
+}
+string Galleta::Cadena(){
+  stringstream pruebaga;
+  pruebaga << "Galleta sabor: " << sabor << " con figura: "<< figura << "\n";
+  return pruebaga.str();
+}
+string Pan::Cadena(){
+  stringstream pruebapa;
+  pruebapa << "Pan tipo: " << tipo << "\n";
+  return pruebapa.str();
+}
+
 
 //Funciones para pasteles
 //Funciones Get o getters
@@ -161,6 +196,9 @@ float Pastel::get_mantequilla(){
 float Pastel::get_molde(){
   return molde;
 }
+float Pastel::get_precio(){
+  return precio;
+}
 
 //Funciones set o setters
 void Pastel::set_huevos(int hue){
@@ -184,6 +222,9 @@ void Pastel::set_mantequilla(float man){
 void Pastel::set_molde(float mold){
   molde=mold;
 }
+void Pastel::set_precio(float pre){
+  precio=pre;
+}
 
 //Funciones para galletas
 //Funciones Get o getters
@@ -205,6 +246,9 @@ float Galleta::get_azucar(){
 float Galleta::get_mantequilla(){
   return mantequilla;
 }
+float Galleta::get_precio(){
+  return precio;
+}
 
 //Funciones Set o setters
 void Galleta::set_huevos(int hue){
@@ -224,6 +268,9 @@ void Galleta::set_azucar(float az){
 }
 void Galleta::set_mantequilla(float man){
   mantequilla=man;
+}
+void Galleta::set_precio(float pre){
+  precio=pre;
 }
 
 //Funciones para Pan
@@ -249,6 +296,9 @@ float Pan::get_azucar(){
 float Pan::get_mantequilla(){
   return mantequilla;
 }
+float Pan::get_precio(){
+  return precio;
+}
 
 //Funciones Set o setters
 void Pan::set_tipo(string tip){
@@ -272,6 +322,9 @@ void Pan::set_azucar(float az){
 void Pan::set_mantequilla(float man){
   mantequilla=man;
 }
+void Pan::set_precio(float pre){
+  precio=pre;
+}
 
 //Funciones para pasteles de boda
 //Funciones Get o getters
@@ -282,6 +335,7 @@ int PastelBoda::get_pisos(){
 void PastelBoda::set_pisos(int pis){
   pisos=pis;
 }
+
 //Funciones para cupcakes
 //Funciones Get o getters
 string Cupcake::get_betun(){
@@ -295,3 +349,4 @@ void Cupcake::set_betun(string bet){
 #endif
 #endif
 #endif
+
