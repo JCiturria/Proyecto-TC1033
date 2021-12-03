@@ -134,11 +134,9 @@ float Orden::precio_total(){
   }
 }
 
-/*total=total+pboda[i].get_precio();
-total=total+cup[i].get_precio();
-total=total+panes[i].get_precio();*/
-
 //Funciones para crear Articulos
+
+//funcion para crear pasteles de boda
 void Orden::agregar_pastelboda(int huevos,float harina,string sabor,float azucar,
 float levadura,float mantequilla,float molde,float precio,int pisos){
 
