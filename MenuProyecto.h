@@ -12,6 +12,7 @@ Descripcion:Documento que contiene las clases de los platillos de las cocicnas, 
 #ifndef GALLETA_H
 #define GALLETA_H
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 class Pastel{
