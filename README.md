@@ -8,6 +8,11 @@ Con el programa, el panadero podra una recibir orden por personas o piezas y dec
 Un programa que crea ordenes hechas por clientes, donde se agregan productos de la panaderia. Aqui se generan precios, numero de orden, nombre de orden, y el numero y tipo de articulos en la orden.
 
 # Correciones:
+
+#CORRECIONES DE UML-SICT0302A
+
+#CORRECIONES DE CODIGO-SICT0303A
+
 Se agrego el header de Ordenes.h (incluye clase orden)
 
 Se implemento una clase de orden
@@ -22,11 +27,15 @@ Se agregaron pruebas en el main para comprbar el funcionamiento de las clases y 
 
 PARTE 2
 
+#SICT0303A
+
 Se termino de implementar herencia
 
 Se agrego la clase cupcake, clase hija de pastel
 
 Se mejoro el Menu
+
+#SICT0302A
 
 Se cambio el diagrama UML
 
@@ -35,6 +44,10 @@ Se cambio y modifico el header de Ordenes, con nuevos metodos y atributos
 Se agrego composicion a los objetos
 
 PARTE 3
+
+SICT0302A
+
+SICT0303A
 
 Se modifico el main
 
