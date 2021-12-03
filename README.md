@@ -40,6 +40,6 @@ Se modifico el main
 
 Se agrego puntos 6 del main
 
-Se implemento funciones para el precio e imprimir las ordenes
+Se implemento funciones para imprimir la orden
 
 Se modifico el UML
